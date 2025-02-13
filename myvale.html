@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeuse Saint-Valentin ❤️</title>
+    <style>
+        body {
+            background-color: #ffdde1;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            color: #ff4d6d;
+            font-size: 36px;
+        }
+        p {
+            font-size: 20px;
+            color: #333;
+        }
+        .heart {
+            font-size: 50px;
+            animation: heartbeat 1.5s infinite alternate;
+            color: #ff4d6d;
+        }
+        @keyframes heartbeat {
+            from { transform: scale(1); }
+            to { transform: scale(1.3); }
+        }
+        .button {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background-color: #e63950;
+        }
+        .hidden {
+            display: none;
+            font-size: 22px;
+            color: #e63950;
+            font-weight: bold;
+        }
+        .choice {
+            margin-top: 20px;
+        }
+        .yes-button, .no-button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .yes-button {
+            background-color: #28a745;
+            color: white;
+        }
+        .yes-button:hover {
+            background-color: #218838;
+        }
+        .no-button {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Joyeuse Saint-Valentin, mon amour ! ❤️</h1>
+        <p>Tu es la plus belle chose qui me soit arrivée. Je t’aime plus que tout au monde !</p>
+        <div class="heart">❤️</div>
+        <button class="button" onclick="showMessage()">Clique ici</button>
+        <p id="hiddenMessage" class="hidden"></p>
+
+        <div class="choice hidden" id="valentineQuestion">
+            <p>Veux-tu être ma Valentine ? 🥰</p>
+            <button class="yes-button" onclick="showLoveMessage()">Oui ❤️</button>
+            <button class="no-button" id="noButton" onclick="trapChoice()">Non 😢</button>
+        </div>
+
+        <p id="loveMessage" class="hidden"></p>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById("hiddenMessage").innerHTML = "Tu es l'amour de ma vie ❤️";
+            document.getElementById("hiddenMessage").style.display = "block";
+            document.getElementById("valentineQuestion").style.display = "block";
+        }
+
+        function showLoveMessage() {
+            document.getElementById("loveMessage").innerHTML = "Yay !! 🥰 Je t’aime trop !!! ❤️💖💘";
+            document.getElementById("loveMessage").style.display = "block";
+        }
+
+        function trapChoice() {
+            let noButton = document.getElementById("noButton");
+            noButton.innerHTML = "Oui ❤️";
+            noButton.style.backgroundColor = "#28a745";
+            noButton.style.color = "white";
+            noButton.onclick = showLoveMessage;
+        }
+    </script>
+
+</body>
+</html>
